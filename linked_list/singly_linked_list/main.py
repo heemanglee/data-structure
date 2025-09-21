@@ -8,6 +8,7 @@ class SingleLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+        self.size = 0
 
     # 삽입 소요 시간: O(1)
     # 각 노드에 포인터가 존재하고, 새로운 노드는 tail 노드의 포인터에 연결하면 됨.
@@ -20,15 +21,12 @@ class SingleLinkedList:
         else:
             self.tail.next = new_node
             self.tail = new_node
+        self.size += 1
 
     # 탐색 소요 시간: O(N)
     # head 노드부터 순차적으로 탐색해야하므로 원하는 요소를 찾는데 걸리는 시간은 O(N)
     def find(self, value):
         current = self.head
-        if current.value == value:
-            return current
-
-        current = current.next
         while current:
             if current.value == value:
                 return current
